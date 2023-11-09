@@ -11,6 +11,21 @@
 # Learn more about CSS variables at https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
 --------------------------------------------------------------*/
 /* Fonts */
+#showPassword {
+  background-color: rgba(206, 18, 18, 0.8); /* Bootstrap primary color */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#showPassword:hover {
+  background-color: rgba(206, 18, 18, 0.8); /* Darker shade for hover effect */
+}
+
 :root {
   --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-primary: "Amatic SC", sans-serif;
