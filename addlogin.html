@@ -35,6 +35,7 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  
 </head>
 
 <body>
@@ -55,7 +56,6 @@
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="resources.html">Resources</a></li>
           <li><a href="newsletter.html">Newsletter</a></li>
-          <li><a href="addlogin.html">Create Login</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -74,67 +74,7 @@
         <br><br><br>
 
         <div class="section-header">
-          <h1>Gallery</h1>
-          <p>View all the photos from the mission</span></p>
-        </div>
-
-        <!-- ======= Gallery Section ======= -->
-            <section id="gallery" class="gallery section-bg">
-                <div class="container" data-aos="fade-up">
-        
-                <div class="gallery-slider swiper">
-                    <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/Elder Hamm Elder Andrade.JPG"><img src="assets/img/gallery/Elder Hamm Elder Andrade.JPG" class="img-fluid" alt=""></a></div>
-                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/Elder Vega Elder Hamm.jpg"><img src="assets/img/gallery/Elder Vega Elder Hamm.jpg" class="img-fluid" alt=""></a></div>
-                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/Elders!.jpg"><img src="assets/img/gallery/Elders!.jpg" class="img-fluid" alt=""></a></div>
-                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/Hammock.jpg"><img src="assets/img/gallery/Hammock.jpg" class="img-fluid" alt=""></a></div>
-                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/Itapecuru.jpg"><img src="assets/img/gallery/Itapecuru.jpg" class="img-fluid" alt=""></a></div>
-                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/Pão de Açúcar.jpg"><img src="assets/img/gallery/Pão de Açúcar.jpg" class="img-fluid" alt=""></a></div>
-                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/Sisters!.jpg"><img src="assets/img/gallery/Sisters!.jpg" class="img-fluid" alt=""></a></div>
-                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/Templo Rio.jpg"><img src="assets/img/gallery/Templo Rio.jpg" class="img-fluid" alt=""></a></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-                </div>
-            </section><!-- End Gallery Section -->
-            <br><br><br>
-
-            <div style="text-align: center;">
-                <h2>Add Pictures</h2>
-                <input type="file" id="fileInput" style="display: none;" onchange="uploadImage(this)">
-                <label for="fileInput">
-                  <button type="button" style="background-color: red; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer;"
-                  onmouseover="this.style.backgroundColor='white'; this.style.color='red'" 
-                  onmouseout="this.style.backgroundColor='red'; this.style.color='white'">Add Pictures to the Gallery</button>
-                </label>
-            </div>
-
-            <br><br><br>
-
-            <div id="morePictures" style="text-align: center;">
-                <h2>More Pictures</h2>
-                <div id="imageContainer"></div>
-              </div>
-
-              <script>
-                function uploadImage(input) {
-                  const file = input.files[0];
-            
-                  if (file) {
-                    const reader = new FileReader();
-            
-                    reader.onload = function(e) {
-                      const imageContainer = document.getElementById("imageContainer");
-                      const imageElement = document.createElement("img");
-                      imageElement.src = e.target.result;
-                      imageElement.style.maxWidth = "100%";
-                      imageContainer.appendChild(imageElement);
-                    };
-            
-                    reader.readAsDataURL(file);
-                  }
-                }
-              </script>
+          <h1>Create New Login</h1>
 
       </div>
     </section><!-- End About Section -->
