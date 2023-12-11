@@ -100,21 +100,41 @@
 
             <div style="text-align: center;">
                 <h2>Add Pictures</h2>
-                <button type="button" onclick="addPicture" style="background-color: red; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer;"
-                onmouseover="this.style.backgroundColor='white'; this.style.color='red'" 
-                onmouseout="this.style.backgroundColor='red'; this.style.color='white'">Add Pictures to the Gallery</button>
-              </div>
+                <input type="file" id="fileInput" style="display: none;" onchange="uploadImage(this)">
+                <label for="fileInput">
+                  <button type="button" style="background-color: red; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer;"
+                  onmouseover="this.style.backgroundColor='white'; this.style.color='red'" 
+                  onmouseout="this.style.backgroundColor='red'; this.style.color='white'">Add Pictures to the Gallery</button>
+                </label>
+            </div>
 
             <br><br><br>
 
-            <div>
-                <h2 style="text-align: center;">More Pictures</h2>
-            </div>
+            <div id="morePictures" style="text-align: center;">
+                <h2>More Pictures</h2>
+                <div id="imageContainer"></div>
+              </div>
 
-
-
-
+              <script>
+                function uploadImage(input) {
+                  const file = input.files[0];
             
+                  if (file) {
+                    const reader = new FileReader();
+            
+                    reader.onload = function(e) {
+                      const imageContainer = document.getElementById("imageContainer");
+                      const imageElement = document.createElement("img");
+                      imageElement.src = e.target.result;
+                      imageElement.style.maxWidth = "100%";
+                      imageContainer.appendChild(imageElement);
+                    };
+            
+                    reader.readAsDataURL(file);
+                  }
+                }
+              </script>
+
       </div>
     </section><!-- End About Section -->
 
