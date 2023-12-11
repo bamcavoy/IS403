@@ -56,6 +56,7 @@
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="resources.html">Resources</a></li>
           <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="addlogin.html">Create Login</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -113,8 +114,44 @@
             <input type="date" class="form-control" name="missionaryEndDate" id="missionaryEndDate" placeholder="Missionary End Date" required>
         </div>
         <br><br>
-        <div class="text-center"><button class="btn-book-a-table" type="submit">Submit</button></div>
+        <div class="text-center"><button class="btn-book-a-table" type="submit">Submit Missionary Information</button></div>
     </form><!-- End Contact Form -->
+
+    <div class="section-header">
+      <h2>Input Area Information Information</h2>
+
+      <form action="forms/contact.php" method="post" role="form" class="php-email-form p-3 p-md-4">
+        <div class="row">
+            <div class="col-xl-6 form-group">
+                <input type="text" name="areaName" class="form-control" id="areaName" placeholder="Area Name" required>
+            </div>
+            <div class="col-xl-6 form-group">
+                <input type="text" class="form-control" name="areaInfo" id="areaInfo" placeholder="Area Information" required>
+            </div>
+        </div>
+        <br><br>
+        <div class="text-center"><button class="btn-book-a-table" type="submit">Submit Area Information</button></div>
+      </form>
+
+  </div>
+
+  <div class="section-header">
+    <h2>Create Login</h2>
+
+    <form action="forms/contact.php" method="post" role="form" class="php-email-form p-3 p-md-4">
+      <div class="row">
+          <div class="col-xl-6 form-group">
+              <input type="text" name="areaName" class="form-control" id="username" placeholder="Username" required>
+          </div>
+          <div class="col-xl-6 form-group">
+              <input type="text" class="form-control" name="areaInfo" id="password" placeholder="Password" required>
+          </div>
+      </div>
+      <br><br>
+      <div class="text-center"><button class="btn-book-a-table" type="submit">Submit Area Information</button></div>
+    </form>
+
+  </div>
     
     </section><!-- End About Section -->
 
