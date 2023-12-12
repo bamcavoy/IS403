@@ -79,4 +79,8 @@ app.get("/addlogin", (req, res) =>{
     res.render("addlogin")
 });
 
+app.get("/writepost", (req, res) =>{
+    res.render("writepost")
+});
+
 app.listen(port, () => console.log("Listening"));
