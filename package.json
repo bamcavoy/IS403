@@ -4,7 +4,7 @@
   "description": "IS 403 Project - Missionary Database",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js", 
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,6 +13,7 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "knex": "^3.1.0",
+    "multer": "^1.4.5-lts.1",
     "pg": "^8.11.3"
   }
 }
