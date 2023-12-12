@@ -27,6 +27,7 @@
 
   <!-- Template Main CSS File -->
   <link href="css/main.css" rel="stylesheet">
+  <link href="css/gallery.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Yummy
@@ -51,7 +52,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="gallery">Gallery</a></li>
           <li><a href="resources">Resources</a></li>
           <li><a href="newsletter">Newsletter</a></li>
@@ -99,42 +100,17 @@
             </section><!-- End Gallery Section -->
             <br><br><br>
 
-            <div style="text-align: center;">
-                <h2>Add Pictures</h2>
-                <input type="file" id="fileInput" style="display: none;" onchange="uploadImage(this)">
-                <label for="fileInput">
-                  <button type="button" style="background-color: red; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer;"
-                  onmouseover="this.style.backgroundColor='white'; this.style.color='red'" 
-                  onmouseout="this.style.backgroundColor='red'; this.style.color='white'">Add Pictures to the Gallery</button>
-                </label>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+              <input type="file" name="image" accept="image/*" required>
+              <button type="submit">Upload Image</button>
+            </form>
+          
+            <!-- Display existing images -->
+            <div id="imageContainer">
+              <% images.forEach(function(image) { %>
+                <img src="<%= image %>" style="max-width: 200px;" />
+              <% }); %>
             </div>
-
-            <br><br><br>
-
-            <div id="morePictures" style="text-align: center;">
-                <h2>More Pictures</h2>
-                <div id="imageContainer"></div>
-              </div>
-
-              <script>
-                function uploadImage(input) {
-                  const file = input.files[0];
-            
-                  if (file) {
-                    const reader = new FileReader();
-            
-                    reader.onload = function(e) {
-                      const imageContainer = document.getElementById("imageContainer");
-                      const imageElement = document.createElement("img");
-                      imageElement.src = e.target.result;
-                      imageElement.style.maxWidth = "100%";
-                      imageContainer.appendChild(imageElement);
-                    };
-            
-                    reader.readAsDataURL(file);
-                  }
-                }
-              </script>
 
       </div>
     </section><!-- End About Section -->
