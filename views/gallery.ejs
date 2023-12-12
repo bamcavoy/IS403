@@ -100,17 +100,18 @@
             </section><!-- End Gallery Section -->
             <br><br><br>
 
-            <form action="/upload" method="post" enctype="multipart/form-data">
-              <input type="file" name="image" accept="image/*" required>
+          <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+              <label for="imageInput">Choose an image:</label>
+              <input type="file" name="image" accept="image/*" id="imageInput">
               <button type="submit">Upload Image</button>
-            </form>
+          </form>
           
-            <!-- Display existing images -->
-            <div id="imageContainer">
+          <!-- Display existing images -->
+          <div id="imageContainer">
               <% images.forEach(function(image) { %>
-                <img src="<%= image %>" style="max-width: 200px;" />
+                  <img src="<%= image %>" style="max-width: 200px;" />
               <% }); %>
-            </div>
+          </div>
 
       </div>
     </section><!-- End About Section -->
@@ -145,6 +146,43 @@
 
   <!-- Template Main JS File -->
   <script src="js/main.js"></script>
+
+        <!-- Add this at the end of the body -->
+        <script>
+          // Validate form on submit
+          function validateForm() {
+            const fileInput = document.querySelector('input[name="image"]');
+            if (!fileInput.files || fileInput.files.length === 0) {
+              alert('Please select an image to upload.');
+              return false;
+            }
+            return true;
+          }
+  
+          // Load images after the page loads
+          window.onload = async () => {
+            await loadImages();
+          };
+  
+          async function loadImages() {
+            try {
+              const response = await fetch('/gallery/images');
+              const images = await response.json();
+  
+              const imageContainer = document.getElementById('imageContainer');
+              imageContainer.innerHTML = '';
+  
+              images.forEach(image => {
+                const imgElement = document.createElement('img');
+                imgElement.src = image;
+                imgElement.style.maxWidth = '200px';
+                imageContainer.appendChild(imgElement);
+              });
+            } catch (error) {
+              console.error('Error loading images:', error);
+            }
+          }
+        </script>
 
 </body>
 

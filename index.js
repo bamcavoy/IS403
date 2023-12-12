@@ -1,9 +1,10 @@
 const express = require("express");
+const fs = require('fs').promises;
 
 let app = express();
 
 const multer = require('multer');
-const fs = require('fs').promises;
+const { getImages } = require("./assets/js/image");
 
 let path = require("path");
 
@@ -25,17 +26,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-async function getImages() {
-    try {
-      const uploadsDir = path.join(__dirname, 'assets', 'uploads');
-      const files = await fs.readdir(uploadsDir);
-      return files.map(file => path.join('assets', 'uploads', file));
-    } catch (error) {
-      console.error('Error reading images:', error);
-      return [];
-    }
-  }
-
 const knex = require("knex")({
     client: "pg",
     connection: {
@@ -52,11 +42,15 @@ app.get("/", (req, res) =>{
 });
 
 app.get('/gallery', async (req, res) => {
+  try {
     // List the existing images in the "uploads" folder asynchronously
     const images = await getImages();
     res.render('gallery', { images });
-  });
-
+  } catch (error) {
+    console.error('Error rendering gallery:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
   app.post('/upload', upload.single('image'), (req, res) => {
     // Logic to handle the uploaded file (store file information in a database, etc.)
