@@ -10,6 +10,8 @@ app.set("view engine", "ejs");
 
 app.use(express.urlencoded({extended : true}));
 
+app.use(express.static(path.join(__dirname, 'assets')));
+
 const knex = require("knex")({
     client: "pg",
     connection: {
@@ -17,12 +19,12 @@ const knex = require("knex")({
         user: "postgres",
         password: "hs2716HS",
         database: "bucket_list",
-        port:5433
+        port:5432
     }
 });
 
 app.get("/", (req, res) =>{
     res.render("index")
-})
+});
 
 app.listen(port, () => console.log("Listening"));
