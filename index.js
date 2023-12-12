@@ -27,4 +27,24 @@ app.get("/", (req, res) =>{
     res.render("index")
 });
 
+app.get("/gallery", (req, res) =>{
+    res.render("gallery")
+});
+
+app.get("/loginpage", (req, res) =>{
+    res.render("loginpage")
+});
+
+app.get("/newsletter", (req, res) =>{
+    res.render("newsletter")
+});
+
+app.get("/resources", (req, res) =>{
+    res.render("resources")
+});
+
+app.get("/addlogin", (req, res) =>{
+    res.render("addlogin")
+});
+
 app.listen(port, () => console.log("Listening"));
